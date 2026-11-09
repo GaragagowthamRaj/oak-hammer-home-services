@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f3efe7;
+  color: #17211c;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #d5e4db;
+  color: #17211c;
+}
+
+:focus-visible {
+  outline: 2px solid #8d7040;
+  outline-offset: 3px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes drawer-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in {
+    animation: fade-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .kenburns {
+    animation: kenburns 8.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .drawer-in {
+    animation: drawer-in 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-motion] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+@media (scripting: none) {
+  [data-motion] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
