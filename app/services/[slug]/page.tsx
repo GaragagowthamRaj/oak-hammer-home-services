@@ -18,7 +18,7 @@ export const dynamicParams = false;
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<Params> | Params;
+  params: Promise<Params>;
 }): Promise<Metadata> {
   const { slug } = await params;
   const service = getService(slug);
@@ -26,7 +26,7 @@ export async function generateMetadata({
   return pageMetadata(service.title, service.summary, `/services/${service.slug}`);
 }
 
-export default async function ServiceDetailPage({ params }: { params: Promise<Params> | Params }) {
+export default async function ServiceDetailPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
   const service = getService(slug);
   if (!service) notFound();

@@ -17,7 +17,7 @@ export const dynamicParams = false;
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<Params> | Params;
+  params: Promise<Params>;
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
@@ -25,7 +25,7 @@ export async function generateMetadata({
   return pageMetadata(post.title, post.excerpt, `/blog/${post.slug}`);
 }
 
-export default async function BlogPostPage({ params }: { params: Promise<Params> | Params }) {
+export default async function BlogPostPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) notFound();
